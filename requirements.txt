@@ -1,0 +1,6 @@
+wheel
+setuptools
+Pillow
+telethon
+termcolor
+prettytable
