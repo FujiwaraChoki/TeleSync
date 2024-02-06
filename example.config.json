@@ -1,6 +1,7 @@
 {
-    "telesync_path": "default", // Or provide path to TeleSync folder
-    "telegram_api_id": "",
-    "telegram_api_hash": "",
-    "verbose": false // Set to true to enable verbose logging
+  "telegram_api_id": "",
+  "telegram_api_hash": "",
+  "phone_number": "",
+  "db_file": "telesync.db",
+  "verbose": false // Set to true to enable verbose logging
 }

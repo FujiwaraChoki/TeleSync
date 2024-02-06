@@ -10,6 +10,8 @@ from prettytable import PrettyTable
 from telethon import TelegramClient, events, sync
 
 VERBOSE = get_verbose()
+DB_FILE = get_db_file()
+PHONE = get_phone()
 
 if VERBOSE:
     import logging
@@ -21,9 +23,19 @@ class Telegram:
     def __init__(self):
         self._api_id = get_telegram_api_id()
         self._api_hash = get_telegram_api_hash()
+        if VERBOSE:
+            print(colored("[INFO] Initializing Telegram Client...", "magenta"))
         self._client = TelegramClient("anon", self.api_id, self.api_hash)
-        self._client.start()
-        self._db = Database("files.db")
+        if VERBOSE:
+            print(colored(f"[INFO] Connecting to Telegram via \"{PHONE}\""))
+        self._client.start(phone=PHONE)
+        
+        if not DB_FILE:
+            self._db = Database("files.db")
+        else:
+            if VERBOSE:
+                print(colored(f"[INFO] Using \"{DB_FILE}\" as database location..."))
+            self._db = Database(DB_FILE)
 
     @property
     def api_id(self):
@@ -43,7 +55,11 @@ class Telegram:
 
     def list_files(self):
         # List all files
+        if VERBOSE:
+            print(colored("[INFO] Fetching files..."))
         files = self.db.fetch()
+        if VERBOSE:
+            print(colored(f"[SUC] Found {len(list(files))} files."))
         table = PrettyTable()
         table.field_names = [
             "ID 🌟",
@@ -180,8 +196,6 @@ class Telegram:
             id, file_name, absolute_path, os.path.getsize(absolute_path), chunks, "file"
         )
 
-        print(colored(f"[+] Uploaded {file_name} to Telegram.", "green"))
-
     def upload_directory(self, current_dir: str, dir_path: str, dir_name: str):
         print(colored(f"[*] Uploading {dir_path} to Telegram...", "magenta"))
 
@@ -201,7 +215,8 @@ class Telegram:
                 chunks = split_file_into_chunks(file_path)
 
                 id = uuid.uuid4().__str__().replace("-", "")
-                print(colored(f"\t[+] Split {file} into {len(chunks)} chunk(s).", "cyan"))
+                if VERBOSE:
+                    print(colored(f"\n\t[+] Split {file} into {len(chunks)} chunk(s).", "cyan"))
 
                 # Upload each chunk to Telegram
                 with self.client.start() as client:
@@ -224,7 +239,7 @@ class Telegram:
                     id, file, file_path, os.path.getsize(file_path), chunks, "dir"
                 )
 
-        print(colored(f"[+] Uploaded {dir_name} to Telegram.", "green"))
+        print(colored(f"\n[+] Uploaded {dir_name} to Telegram.", "green"))
 
 
     def download_directory(self, dir_query: str):
