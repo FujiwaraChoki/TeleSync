@@ -22,7 +22,7 @@ def main():
     config_file = os.path.join(ROOT_DIR, "config.json")
 
     if not os.path.exists(config_file):
-        print(colored("[-] Couldnt not find your config file.", "red"))
+        print(colored("[-] Couldn't not find your config file.", "red"))
         sys.exit(1)
 
     telegram = Telegram()
