@@ -1,6 +1,5 @@
 import os
 import sys
-import asyncio
 
 from telegram import Telegram
 from termcolor import colored
@@ -44,9 +43,17 @@ def main():
         file_path = args[1]
         file_name = os.path.basename(file_path)
 
-        telegram.upload_file(current_dir, file_path, file_name)
+        if not os.path.exists(file_path):
+            print(colored(f"[-] File {file_path} does not exist.", "red"))
+            sys.exit(1)
 
-        sys.exit(0)
+        # Check if directory
+        if os.path.isdir(file_path):
+            telegram.upload_directory(current_dir, file_path, file_name)
+            sys.exit(0)
+        else:
+            telegram.upload_file(current_dir, file_path, file_name)
+            sys.exit(0)
 
     if args[0] == "download":
         if len(args) < 2:
