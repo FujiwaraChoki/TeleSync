@@ -4,3 +4,4 @@ __pycache__
 .history
 *session*
 *.db
+temp/*
