@@ -185,7 +185,7 @@ class Telegram:
 
             for chunk_num, chunk_path in enumerate(chunks):
                 caption = f"{id}::::::{absolute_path}::::::{str(chunk_num)}:::::file"
-                result = client.send_file(
+                client.send_file(
                     "me",
                     chunk_path,
                     caption=caption,
@@ -204,7 +204,6 @@ class Telegram:
 
         # List all files in the directory
         files = os.listdir(absolute_path)
-
         
         progress = tqdm(total=len(files))
 
