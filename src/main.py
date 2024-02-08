@@ -1,3 +1,21 @@
+"""
+By using `TeleSync`, you agree to the following terms and conditions:
+- No warranty is provided. Use at your own risk.
+- You will not use this tool for any illegal activities.
+- You will not use this tool to upload or download any illegal content.
+
+If you do not agree to these terms, do not use this tool.
+
+This tool is provided as is, and is not affiliated with Telegram in any way.
+
+Author: @FujiwaraChoki
+Date: 08.02.2024
+Version: 1.0.4
+GitHub: https://github.com/FujiwaraChoki/TeleSync
+
+Licensed under the GNU General Public License v3.0. See the LICENSE file for more information.
+"""
+
 import os
 import sys
 
