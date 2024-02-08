@@ -107,19 +107,26 @@ class Telegram:
 
         # Download each chunk
         with self.client.start() as client:
+            # Loop through each chunk
             for chunk_num, chunk_path in enumerate(chunks):
+                # Build the caption, to search for the message
+                # that contains the chunk we need.
                 caption = f"{file[0]}:::::{file[2]}:::::{str(chunk_num)}:::::file"
                 messages = client.get_messages("me", search=caption)
 
+                # Loop through each message
                 for message in messages:
+                    # Check if message contains the chunk we need
                     if message.message.split(":::::")[0] == file[0]:
+                        # Download the chunk in temp directory
                         client.download_media(message, file=chunk_path)
 
+                        # Read the chunk
                         with open(chunk_path, "rb") as chunk_file:
                             chunk = chunk_file.read()
 
+                            # Append the chunk to the file
                             with open(file_path, "ab") as file:
-                                # Append the chunk to the file
                                 file.write(chunk)
 
         print(colored(f"[+] Downloaded file \"{file_name}\" to \"{file_path}\".", "green"))
