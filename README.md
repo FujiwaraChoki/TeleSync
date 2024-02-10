@@ -2,12 +2,14 @@
 
 An application to store your local files on Telegram.
 
+> **📸 Watch the video on [YouTube](https://youtu.be/3J6z3X3zv8A)**
+
 ## Features
 
 - Infinite storage (No limit)
 - Easy to use
 - Fast and secure
-- Free
+- Free & Open Source
 
 ## Prerequisites
 
@@ -59,12 +61,18 @@ chmod +x run.sh
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
 
+## Issues
+
+If you found a **bug**, please to open an [issue](https://github.com/FujiwaraChoki/TeleSync/issues). Issues that are not related to bugs will be closed.
+
 ## Contributing
 
+> Only Pull Requests with fixes or/and improvements will be accepted.
+
 1. Fork it
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
+2. Create your feature branch (`git checkout -b fix/fooBar`)
+3. Commit your changes (`git commit -am 'Fixed fooBar'`)
+4. Push to the branch (`git push origin fix/fooBar`)
 5. Create a new Pull Request
 
 ## Authors
