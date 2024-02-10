@@ -61,7 +61,7 @@ def main():
             sys.exit(1)
 
         current_dir = os.getcwd()
-        file_path = args[1]
+        file_path = args[1] # File path after `upload` command
         file_name = os.path.basename(file_path)
 
         if not os.path.exists(file_path):
@@ -70,9 +70,11 @@ def main():
 
         # Check if directory
         if os.path.isdir(file_path):
+            # Upload as directory
             telegram.upload_directory(current_dir, file_path, file_name)
             sys.exit(0)
         else:
+            # Upload as file
             telegram.upload_file(current_dir, file_path, file_name)
             sys.exit(0)
 
