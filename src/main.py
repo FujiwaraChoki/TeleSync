@@ -13,7 +13,8 @@ Date: 08.02.2024
 Version: 1.0.4
 GitHub: https://github.com/FujiwaraChoki/TeleSync
 
-Licensed under the GNU General Public License v3.0. See the LICENSE file for more information.
+Licensed under the GNU General Public License v3.0.
+See the LICENSE file for more information.
 """
 
 import os
