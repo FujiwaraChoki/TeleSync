@@ -49,11 +49,13 @@ def main():
     # See args
     args = sys.argv[1:]
 
+    command = args[0]
+
     if len(args) == 0:
         print(colored("[-] No arguments provided.", "red"))
         sys.exit(1)
 
-    if args[0] == "upload":
+    if command == "upload":
         if len(args) < 2:
             print(colored("[-] Not enough arguments provided.", "red"))
             sys.exit(1)
@@ -74,7 +76,7 @@ def main():
             telegram.upload_file(current_dir, file_path, file_name)
             sys.exit(0)
 
-    if args[0] == "download":
+    if command == "download":
         if len(args) < 2:
             print(colored("[-] Not enough arguments provided.", "red"))
             sys.exit(1)
@@ -89,7 +91,7 @@ def main():
 
         sys.exit(0)
 
-    if args[0] == "remove":
+    if command == "remove":
         if len(args) < 2:
             print(colored("[-] Not enough arguments provided.", "red"))
             sys.exit(1)
