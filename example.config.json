@@ -3,5 +3,5 @@
   "telegram_api_hash": "",
   "phone_number": "",
   "db_file": "telesync.db",
-  "verbose": false // Set to true to enable verbose logging
+  "verbose": false
 }
