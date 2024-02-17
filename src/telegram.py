@@ -12,6 +12,8 @@ from telethon import TelegramClient, events, sync
 VERBOSE = get_verbose()
 DB_FILE = get_db_file()
 PHONE = get_phone()
+db_type = get_db_type()
+neon_db = get_neon_db()
 
 if VERBOSE:
     import logging
@@ -30,12 +32,21 @@ class Telegram:
             print(colored(f"[INFO] Connecting to Telegram via \"{PHONE}\""))
         self._client.start(phone=PHONE)
         
-        if not DB_FILE:
-            self._db = Database("files.db")
-        else:
-            if VERBOSE:
-                print(colored(f"[INFO] Using \"{DB_FILE}\" as database location..."))
-            self._db = Database(DB_FILE)
+        db1 = None
+        db2 = None
+
+        if db_type == 1 or db_type == 3:
+            if not DB_FILE:
+                db1 = db.Database("files.db")
+            else:
+                if VERBOSE:
+                    print(colored(f"[INFO] Using \"{DB_FILE}\" as database location..."))
+                db1 = db.Database(DB_FILE)
+
+        if db_type == 2 or db_type == 3:
+            db2 = db.Database2(neon_db)
+
+        self._db = db.DynamicDatabase(db_type, db1, db2)
 
     @property
     def api_id(self):
