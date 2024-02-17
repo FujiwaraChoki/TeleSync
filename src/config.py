@@ -21,10 +21,22 @@ def get_telegram_api_hash():
     # Read `config.json` file and get the value of `telegram_api_hash` key
     return CONFIG["telegram_api_hash"]
 
+
 def get_phone():
     # Get phone number from config
     return CONFIG["phone_number"]
 
+
 def get_db_file():
     # Get the file name of the database from the config
     return CONFIG["db_file"]
+
+
+def get_db_type():
+    # Read `config.json` file and get the value of `need_local_db` key
+    return CONFIG["db_type"]
+
+
+def get_neon_db():
+    # Read `config.json` file and get the value of `neon_db` key
+    return CONFIG["neon_db"]
