@@ -4,3 +4,5 @@ Pillow
 telethon
 termcolor
 prettytable
+tqdm
+psycopg[binary]
