@@ -1,4 +1,4 @@
-:: For windows Copied from the closed issue #1 by N7co9
+:: For simplicity in windows Copied from the closed issue #1 by N7co9
 @echo off
 setlocal enabledelayedexpansion
 
