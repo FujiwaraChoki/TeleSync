@@ -2,7 +2,7 @@
 
 An application to store your local files on Telegram.
 
-> **📸 Watch the video on [YouTube](https://youtu.be/3J6z3X3zv8A)**
+> **📸 Watch the video on [YouTube](https://youtu.be/vCAcc_q-NNw)**
 
 ## Features
 
