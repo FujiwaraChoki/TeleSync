@@ -3,5 +3,10 @@
   "telegram_api_hash": "",
   "phone_number": "",
   "db_file": "telesync.db",
-  "verbose": false
+  "verbose": false,
+  "--comment--": "In db_type use value 1 if you wanna use local db else use value 2 for online db else use 3 for using both local and online db",
+  "--tl-dr--": "In db_type : 1 - local db, 2 - neon db, 3 - both db",
+  "db_type": 1,
+  "neon_db": ""
+
 }
